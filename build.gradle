@@ -21,6 +21,8 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    // json-path
+    implementation 'com.jayway.jsonpath:json-path:2.2.0'
 }
 
 test {
