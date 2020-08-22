@@ -15,12 +15,12 @@ class MemoryMemberRepositoryTest {
 	MemoryMemberRepository memoryMemberRepository = new MemoryMemberRepository();
 
 	@AfterEach
-	public void afterEach(){
+	public void afterEach() {
 		memoryMemberRepository.clearStore();
 	}
 
 	@Test
-	public void save(){
+	public void save() {
 		// given
 		Member member = new Member();
 		member.setName("spring");
@@ -34,7 +34,7 @@ class MemoryMemberRepositoryTest {
 	}
 
 	@Test
-	public void findByName(){
+	public void findByName() {
 
 		// given
 		Member member1 = new Member();
@@ -53,7 +53,7 @@ class MemoryMemberRepositoryTest {
 	}
 
 	@Test
-	public void findAll(){
+	public void findAll() {
 
 		//given
 		Member member1 = new Member();

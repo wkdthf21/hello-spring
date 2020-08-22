@@ -21,14 +21,14 @@ public class MemberService {
 	 * @param MemberRepository
 	 */
 	@Autowired
-	public MemberService(MemberRepository MemberRepository){
+	public MemberService(MemberRepository MemberRepository) {
 		this.memberRepository = MemberRepository;
 	}
 
 	/**
-	* 회원 가입
-	*/
-	public Long join(Member member){
+	 * 회원 가입
+	 */
+	public Long join(Member member) {
 		// 중복 회원은 안된다
 		validateDuplicateMember(member);
 		memberRepository.save(member);
@@ -44,11 +44,11 @@ public class MemberService {
 	/**
 	 * 전체 회원 조회
 	 */
-	public List<Member> findMembers(){
+	public List<Member> findMembers() {
 		return memberRepository.findAll();
 	}
 
-	public Optional<Member> findOne(Long memberId){
+	public Optional<Member> findOne(Long memberId) {
 		return memberRepository.findById(memberId);
 	}
 

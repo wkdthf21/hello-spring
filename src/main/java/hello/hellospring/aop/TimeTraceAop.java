@@ -15,11 +15,11 @@ public class TimeTraceAop {
 		long start = System.currentTimeMillis();
 		System.out.println("START: " + joinPoint.toString());
 
-		try{
+		try {
 			return joinPoint.proceed();
-		}finally {
+		} finally {
 			long finish = System.currentTimeMillis();
-			long timeMs = finish-start;
+			long timeMs = finish - start;
 			System.out.println("END : " + joinPoint.toString() + " " + timeMs + "ms");
 		}
 

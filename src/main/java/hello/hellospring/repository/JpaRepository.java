@@ -7,14 +7,13 @@ import javax.persistence.EntityManager;
 
 import hello.hellospring.domain.Member;
 
-public class JpaRepository implements MemberRepository{
+public class JpaRepository implements MemberRepository {
 
 	private final EntityManager em;
 
-	public JpaRepository(EntityManager em){
+	public JpaRepository(EntityManager em) {
 		this.em = em;
 	}
-
 
 	@Override
 	public Member save(Member member) {

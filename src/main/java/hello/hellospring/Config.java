@@ -22,23 +22,23 @@ public class Config {
 	private final MemberRepository memberRepository;
 
 	@Autowired
-	public Config(MemberRepository memberRepository){
+	public Config(MemberRepository memberRepository) {
 		//this.dataSource = dataSource;
 		//this.em = em;
 		this.memberRepository = memberRepository;
 	}
 
 	@Bean
-	public MemberService memberService(){
+	public MemberService memberService() {
 		return new MemberService(memberRepository);
 	}
 
 	//@Bean
 	//public MemberRepository memberRepository(){
 
-		//return new MemoryMemberRepository();
-		//return new JdbcMemberRepository(dataSource);
-		//return new JdbcTemplateMemberRepository(dataSource);
-		//return new JpaRepository(em);
+	//return new MemoryMemberRepository();
+	//return new JdbcMemberRepository(dataSource);
+	//return new JdbcTemplateMemberRepository(dataSource);
+	//return new JpaRepository(em);
 	//}
 }

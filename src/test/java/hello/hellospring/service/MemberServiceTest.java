@@ -16,13 +16,13 @@ class MemberServiceTest {
 	MemberService memberService;
 
 	@BeforeEach
-	public void beforeEach(){
+	public void beforeEach() {
 		memoryMemberRepository = new MemoryMemberRepository();
 		memberService = new MemberService(memoryMemberRepository);
 	}
 
 	@AfterEach
-	public void afterEach(){
+	public void afterEach() {
 		memoryMemberRepository.clearStore();
 	}
 
@@ -45,7 +45,7 @@ class MemberServiceTest {
 	 * 예외 상황 테스트도 필요
 	 */
 	@Test
-	public void 중복_회원_저장(){
+	public void 중복_회원_저장() {
 
 		//given
 		Member member1 = new Member();
@@ -57,7 +57,7 @@ class MemberServiceTest {
 		memberService.join(member1);
 		// 예외가 발생해야 한다
 		IllegalStateException e = assertThrows(IllegalStateException.class,
-		()-> memberService.join(member2));
+			() -> memberService.join(member2));
 
 		assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 

@@ -18,6 +18,7 @@ import hello.hellospring.domain.Member;
 public class JdbcMemberRepository implements MemberRepository {
 
 	private final DataSource dataSource;
+
 	public JdbcMemberRepository(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
@@ -58,7 +59,7 @@ public class JdbcMemberRepository implements MemberRepository {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setLong(1, id);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				Member member = new Member();
 				member.setId(rs.getLong("id"));
 				member.setName(rs.getString("name"));
@@ -84,7 +85,7 @@ public class JdbcMemberRepository implements MemberRepository {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				Member member = new Member();
 				member.setId(rs.getLong("id"));
 				member.setName(rs.getString("name"));
@@ -109,7 +110,7 @@ public class JdbcMemberRepository implements MemberRepository {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			List<Member> members = new ArrayList<>();
-			while(rs.next()) {
+			while (rs.next()) {
 				Member member = new Member();
 				member.setId(rs.getLong("id"));
 				member.setName(rs.getString("name"));
@@ -147,11 +148,10 @@ public class JdbcMemberRepository implements MemberRepository {
 			if (conn != null) {
 				close(conn);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-
 
 	private void close(Connection conn) throws SQLException {
 		DataSourceUtils.releaseConnection(conn, dataSource);
